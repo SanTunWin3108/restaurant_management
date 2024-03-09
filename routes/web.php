@@ -1,6 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +16,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('admin.auth.register');
+})->name('admin#register');
 
+Route::get('/admin/login', function() {
+    return view('admin.auth.login');
+})->name('admin#login');
+
+
+Route::get('/admin/logout', function() {
+    Session::flush();
+    Auth::logout();
+    return redirect()->route('admin#login');
+})->name('admin#logout');
+
+//user must login or register
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -26,3 +40,5 @@ Route::middleware([
         return view('admin.layout.master');
     })->name('dashboard');
 });
+
+

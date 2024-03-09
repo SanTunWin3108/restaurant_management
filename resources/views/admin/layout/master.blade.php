@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>AdminLTE 2 | Dashboard</title>
+    <title>@yield('title')</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- Bootstrap 3.3.2 -->
     <link href="{{asset('adminLTE/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
@@ -41,6 +41,8 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
+
+
 </head>
 
 <body class="skin-blue">
@@ -305,7 +307,7 @@
                                         </div>
 
                                         <div class="">
-                                            <a href="#" class="btn btn-default btn-flat">Logout</a>
+                                            <a href="{{route('admin#logout')}}" class="btn btn-default btn-flat">Sign Out</a>
                                         </div>
                                     </div>
                                 </li>
@@ -315,7 +317,7 @@
                 </div>
             </nav>
         </header>
-        <!-- Left side column. contains the logo and sidebar -->
+
         <aside class="main-sidebar">
             <!-- sidebar: style can be found in sidebar.less -->
             <section class="sidebar">
@@ -353,8 +355,8 @@
                         <ul class="treeview-menu">
                             <li><a href=""><i class="fa fa-circle-o"></i>Profile</a></li>
                             <li><a href=""><i class="fa fa-circle-o"></i>Password</a></li>
-                            <li><a href=""><i class="fa fa-circle-o"></i>Logout</a></li>
-                          </ul>
+                            <li><a href="{{route('admin#logout')}}"><i class="fa fa-circle-o"></i>Logout</a></li>
+                        </ul>
                     </li>
                     <li class="treeview active">
                         <a href="#">
@@ -381,10 +383,12 @@
             <!-- /.sidebar -->
         </aside>
 
-        <!-- Right side column. Contains the navbar and content of the page -->
-        <div class="content-wrapper">
 
-        </div><!-- /.content-wrapper -->
+        <div class="content-wrapper">
+            @yield('content')
+        </div>
+
+
         <footer class="main-footer">
             <div class="pull-right hidden-xs">
                 <b>Version</b> 2.0
@@ -392,7 +396,7 @@
             <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All
             rights reserved.
         </footer>
-    </div><!-- ./wrapper -->
+    </div>
 
     <!-- jQuery 2.1.3 -->
     <script src="{{asset('adminLTE/plugins/jQuery/jQuery-2.1.3.min.js')}}"></script>
@@ -406,7 +410,7 @@
     <script src="{{asset('adminLTE/bootstrap/js/bootstrap.min.js')}}" type="text/javascript"></script>
     <!-- Morris.js charts -->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-    <script src="{{asset('adminLTE/plugins/morris/morris.min.js')}}" type="text/javascript"></script>
+    {{-- <script src="{{asset('adminLTE/plugins/morris/morris.min.js')}}" type="text/javascript"></script> --}}
     <!-- Sparkline -->
     <script src="{{asset('adminLTE/plugins/sparkline/jquery.sparkline.min.js')}}" type="text/javascript"></script>
     <!-- jvectormap -->
@@ -433,10 +437,10 @@
     <script src="{{asset('adminLTE/dist/js/app.min.js')}}" type="text/javascript"></script>
 
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="{{asset('adminLTE/dist/js/pages/dashboard.js')}}" type="text/javascript"></script>
+    {{-- <script src="{{asset('adminLTE/dist/js/pages/dashboard.js')}}" type="text/javascript"></script> --}}
 
     <!-- AdminLTE for demo purposes -->
-    <script src="{{asset('adminLTE/dist/js/demo.js')}}" type="text/javascript"></script>
+    {{-- <script src="{{asset('adminLTE/dist/js/demo.js')}}" type="text/javascript"></script> --}}
 
 </body>
 
